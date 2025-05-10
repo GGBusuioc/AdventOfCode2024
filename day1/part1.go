@@ -10,6 +10,8 @@ import (
 )
 
 func main() {
+	fmt.Println("Hello Advent of Code Day 1 - Part 1")
+
 	// Step 1: Open the file
 	file, err := os.Open("./day1/input1.txt")
 	if err != nil {
@@ -60,8 +62,6 @@ func main() {
 
 		i += 1
 	}
-
-	fmt.Println("Hello Advent of Code Day 1 - Part 1")
 
 	// Check for errors during scanning
 	if err := scanner.Err(); err != nil {
