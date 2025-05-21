@@ -41,6 +41,26 @@ func day2_2(input string) {
 			num, _ := strconv.Atoi(part)
 			levels[i] = num
 		}
+
+		isSafe := false
+		isSafe = levelIsSafe(levels)
+
+		if !isSafe {
+			for i := 0; i < len(levels); i++ {
+				modifiedLevels := []int{}
+				modifiedLevels = append(modifiedLevels, levels[:i]...)
+				modifiedLevels = append(modifiedLevels, levels[i+1:]...)
+				isSafe = levelIsSafe(modifiedLevels)
+
+				if isSafe {
+					break
+				}
+			}
+		}
+
+		if isSafe {
+			output += 1
+		}
 	}
 
 	fmt.Println("Output Day 2 Part 2:", output)
